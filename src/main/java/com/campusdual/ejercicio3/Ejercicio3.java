@@ -25,7 +25,7 @@ public class Ejercicio3 {
         this.numero = numero;
     }*/
 /* aqui si lo podemos hacer pq altero  los tipos*/
-    public  Ejercicio3(  Integer numero, String y){
+    public  Ejercicio3 (  Integer numero, String y){
         this.numero = numero;
         this.valor = "cadena" + y;
     }
