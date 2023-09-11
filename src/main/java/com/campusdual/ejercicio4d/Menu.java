@@ -86,7 +86,7 @@ public class Menu {
                 newDiet = new Diet(carbs, fats, proteins);
                 break;
             case "d":
-                System.out.println("Ha elegido 'Por datos personales'.\n La dieta va dirigida a un hombre (H) o una mujer (M)?:\n");
+                System.out.println("La dieta va dirigida a un hombre (H) o una mujer (M)?:\n");
                 String gender = entry.next();
                 Boolean women;
                 if (gender.equals("H")){
