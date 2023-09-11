@@ -31,6 +31,7 @@ public class Food {
         return(((carbos*4)+(fats*9)+(proteins*4))*weight/100);
     }
     public Integer getCarbos() {
+
         return carbos;
     }
 
@@ -39,10 +40,12 @@ public class Food {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public void setCarbos(Integer carbos) {
+
         this.carbos = carbos;
     }
 
@@ -55,6 +58,7 @@ public class Food {
     }
 
     public Integer getProteins() {
+
         return proteins;
     }
 

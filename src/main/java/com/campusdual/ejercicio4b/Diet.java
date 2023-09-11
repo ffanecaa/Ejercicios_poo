@@ -1,8 +1,5 @@
 package com.campusdual.ejercicio4b;
 
-
-
-
 public class Diet {
     private Integer maxCalories;
     private Integer maxFats;
@@ -15,7 +12,6 @@ public class Diet {
     private Integer grams;
 
     public Diet() {
-
         this.totalCalories = 0;
         this.totalCarbs = 0;
         this.totalFats = 0;
@@ -35,41 +31,28 @@ public class Diet {
         this.maxProtein = maxProtein;
     }
 
-    /*public void addFood(Food food, Integer foodGrams) {
-        if (totalCalories + (food.getCalories(foodGrams)) > maxCalories) {
-            throw new IllegalArgumentException("Se superó el límite de calorías permitidas.");
-        }
-        if (totalFats + (food.getFats() * foodGrams) > maxFats) {
-            throw new IllegalArgumentException("Se superó el límite de grasas permitidas.");
-        }
-        if (totalCarbs + (food.getCarbos() * foodGrams) > maxCarbs) {
-            throw new IllegalArgumentException("Se superó el límite de carbohidratos permitidos.");
-        }
-        if (totalProtein + (food.getProteins() * foodGrams) > maxProtein) {
-            throw new IllegalArgumentException("Se superó el límite de proteínas permitidas.");
-        }
+    public Diet(Boolean women, Integer age, Integer height, Integer weight) {
+        int maxCalories = calculateTMB(women, age, height, weight);
+        this.maxCalories = maxCalories;
+    }
 
+    private int calculateTMB(Boolean women, Integer age, Integer height, Integer weight) {
+        if (women) {
+            return (int) (10 * weight + 6.25 * height - 5 * age - 161);
+        } else {
+            return (int) (10 * weight + 6.25 * height - 5 * age + 5);
+        }
+    }
 
-*/  /* para el 3 caso tengo max  limitantes que jj lo soluciona con excepciones */
     public void addFood(Food food, Integer foodGrams) {
         totalCalories += food.getCalories(foodGrams);
-        totalFats += food.getFats() * foodGrams;
-        totalCarbs += food.getCarbos() * foodGrams;
-        totalProtein += food.getProteins() * foodGrams;
+        totalFats += (food.getFats() / 100) * foodGrams;
+        totalCarbs += (food.getCarbos() / 100) * foodGrams;
+        totalProtein += (food.getProteins() / 100) * foodGrams;
         grams += foodGrams;
-      /*  public void addFood(Food food, Integer foodGrams) {
-            if (totalCalories + (food.getCalories(foodGrams)) > maxCalories) {
-                throw new IllegalArgumentException("Se superó el límite de calorías permitidas.");
-            } else{
-        totalCalories += food.getCalories(foodGrams);
-        totalFats += food.getFats() * foodGrams;
-        totalCarbs += food.getCarbos() * foodGrams;
-        totalProtein += food.getProteins() * foodGrams;
-        grams += foodGrams;*/
     }
 
     public Integer getTotalCalories() {
-
         return totalCalories;
     }
 
