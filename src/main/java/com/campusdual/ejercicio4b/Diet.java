@@ -45,10 +45,29 @@ public class Diet {
     }
 
     public void addFood(Food food, Integer foodGrams) {
+        if (maxCalories != null && totalCalories + food.getCalories(foodGrams) > maxCalories) {
+            System.out.println("Error: Se ha superado el límite de calorías.");
+            return;
+        }
+
+        if (maxFats != null && totalFats + (food.getFats() * foodGrams) / 100 > maxFats) {
+            System.out.println("Error: Se ha superado el límite de grasas.");
+            return;
+        }
+
+        if (maxCarbs != null && totalCarbs + (food.getCarbos() * foodGrams) / 100 > maxCarbs) {
+            System.out.println("Error: Se ha superado el límite de carbohidratos.");
+            return;
+        }
+
+        if (maxProtein != null && totalProtein + (food.getProteins() * foodGrams) / 100 > maxProtein) {
+            System.out.println("Error: Se ha superado el límite de proteínas.");
+            return;
+        }
         totalCalories += food.getCalories(foodGrams);
-        totalFats += (food.getFats() * foodGrams) / 100; // Corregido el cálculo de grasas
-        totalCarbs += (food.getCarbos() * foodGrams) / 100; // Corregido el cálculo de carbohidratos
-        totalProtein += (food.getProteins() * foodGrams) / 100; // Corregido el cálculo de proteínas
+        totalFats += (food.getFats() * foodGrams) / 100;
+        totalCarbs += (food.getCarbos() * foodGrams) / 100;
+        totalProtein += (food.getProteins() * foodGrams) / 100;
         grams += foodGrams;
     }
 
