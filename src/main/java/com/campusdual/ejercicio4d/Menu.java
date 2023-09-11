@@ -25,7 +25,7 @@ public class Menu {
         Integer select;
         Diet fullDiet = null;
         do {
-            System.out.println("1.Crear/reiniciar dieta\n"+"2.Mostrar información\n"+"3.Agregar alimento\n"+"4.Salir\n ~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("1.Crear/reiniciar dieta\n"+"2.Mostrar información\n"+"3.Agregar alimento\n"+"4.Salir\n" );
             select = entry.nextInt();
             switch (select) {
                 case 1:
