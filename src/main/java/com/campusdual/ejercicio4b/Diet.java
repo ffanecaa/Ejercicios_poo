@@ -45,6 +45,7 @@ public class Diet {
     }
 
     public void addFood(Food food, Integer foodGrams) {
+
         if (maxCalories != null && totalCalories + food.getCalories(foodGrams) > maxCalories) {
             System.out.println("Error: Se ha superado el límite de calorías.");
             return;
