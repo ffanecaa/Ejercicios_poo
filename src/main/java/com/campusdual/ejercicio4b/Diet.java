@@ -46,9 +46,9 @@ public class Diet {
 
     public void addFood(Food food, Integer foodGrams) {
         totalCalories += food.getCalories(foodGrams);
-        totalFats += (food.getFats() / 100) * foodGrams;
-        totalCarbs += (food.getCarbos() / 100) * foodGrams;
-        totalProtein += (food.getProteins() / 100) * foodGrams;
+        totalFats += (food.getFats() * foodGrams) / 100; // Corregido el cálculo de grasas
+        totalCarbs += (food.getCarbos() * foodGrams) / 100; // Corregido el cálculo de carbohidratos
+        totalProtein += (food.getProteins() * foodGrams) / 100; // Corregido el cálculo de proteínas
         grams += foodGrams;
     }
 
