@@ -4,7 +4,7 @@ package com.campusdual.ejercicio4b;
 
 
 // opcion serializable se me va    ....
-public class Food {
+public class Food  {
     private Integer carbos;
     private Integer fats;
     private Integer proteins;

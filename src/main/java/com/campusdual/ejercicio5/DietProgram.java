@@ -14,7 +14,7 @@ public class DietProgram {
     private Diet diet=null;
 
     private List<Food> foodList;
-
+    /* constructor inicializa foodList*/
     public DietProgram(){
         foodList = new ArrayList<>();
     }
