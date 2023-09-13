@@ -15,6 +15,16 @@ package com.campusdual.ejercicio5;
 //      3- Asignar una dieta: Muestra la lista de dietas general y puede asignarle una a un día de la semana del paciente.
 //      4- Dar de baja un paciente: Elimina los datos de un paciente(No borra sus dietas asignadas dado que pueden estar asignadas a otro paciente)
 
+
+/*
+ Set<Food> claves = foodMap.keySet();
+        Integer totalCarbs=0;
+        Integer totalFat=0;
+        Integer totalProtein=0;
+        for (Food clave: claves){
+            totalFat += (clave.getFats()*foodMap.get(clave));
+            totalCarbs += (clave.getCarbos()*foodMap.get(clave));
+            totalProtein += (clave.getProteins()*foodMap.get(clave));*/
 public class Menu {
     public static void main(String[] args) {
         DietProgram program = new DietProgram();
