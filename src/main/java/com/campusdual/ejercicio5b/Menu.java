@@ -1,18 +1,17 @@
 package com.campusdual.ejercicio5b;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Menu {
     public static void main(String[] args) {
         Map<String, Diet> dietas = new HashMap<>();
-        List<Food> alimentosDisponibles = new ArrayList<>();
+        Diet dieta = null;
+        List<Food> alimentosSeleccionados = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
+        String nombreDieta = "";
+
         while (!salir) {
             System.out.println("===================================");
             System.out.println("1-Gestión de Dietas");
@@ -20,11 +19,12 @@ public class Menu {
             System.out.println("3-Salir del programa");
             System.out.println("===================================");
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consumir la nueva línea
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
                     boolean salirDietas = false;
+
                     while (!salirDietas) {
                         System.out.println("########################################################");
                         System.out.println("################# Gestión de Dietas ###################");
@@ -36,7 +36,7 @@ public class Menu {
                         System.out.println("4-Salir");
                         System.out.println("===================================");
                         int opcionDietas = scanner.nextInt();
-                        scanner.nextLine(); // Consumir la nueva línea
+                        scanner.nextLine();
 
                         switch (opcionDietas) {
                             case 1:
@@ -44,7 +44,8 @@ public class Menu {
                                 System.out.println("Crear dieta");
                                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                                 System.out.println("Escriba un nombre para la dieta:");
-                                String nombreDieta = scanner.nextLine();
+                                nombreDieta = scanner.nextLine();
+                                dieta = new Diet();
 
                                 System.out.println("Escriba una opción:");
                                 System.out.println("===================================");
@@ -54,7 +55,7 @@ public class Menu {
                                 System.out.println("d. Por datos personales");
                                 System.out.println("===================================");
                                 char tipoDieta = scanner.next().charAt(0);
-                                scanner.nextLine(); // Consumir la nueva línea
+                                scanner.nextLine();
 
                                 switch (tipoDieta) {
                                     case 'a':
@@ -63,7 +64,7 @@ public class Menu {
                                     case 'b':
                                         System.out.println("Ingrese el máximo de calorías:");
                                         int maxCalorias = scanner.nextInt();
-                                        scanner.nextLine(); // Consumir la nueva línea
+                                        scanner.nextLine();
                                         dietas.put(nombreDieta, new Diet(maxCalorias));
                                         break;
                                     case 'c':
@@ -84,7 +85,7 @@ public class Menu {
                                         int altura = scanner.nextInt();
                                         System.out.println("Ingrese el peso en kilos:");
                                         int peso = scanner.nextInt();
-                                        scanner.nextLine(); // Consumir la nueva línea
+                                        scanner.nextLine();
 
                                         int maxCaloriasPorDatos = calcularMetabolismoBasal(sexo, edad, altura, peso);
                                         dietas.put(nombreDieta, new Diet(maxCaloriasPorDatos));
@@ -99,48 +100,83 @@ public class Menu {
                                 while (agregarAlimentos) {
                                     System.out.println("Escriba una opción:");
                                     System.out.println("===================================");
-                                    System.out.println("1-Agregar alimento");
-                                    System.out.println("2-Terminar de agregar alimentos");
+                                    System.out.println("1-Añadir alimento");
+                                    System.out.println("2-Seleccionar alimento");
                                     System.out.println("===================================");
                                     int opcionAlimentos = scanner.nextInt();
-                                    scanner.nextLine(); // Consumir la nueva línea
+                                    scanner.nextLine();
 
                                     switch (opcionAlimentos) {
                                         case 1:
-                                            System.out.println("Lista de alimentos disponibles:");
-                                            for (int i = 0; i < alimentosDisponibles.size(); i++) {
-                                                System.out.println(i + " " + alimentosDisponibles.get(i).getName());
-                                            }
-                                            System.out.print("Seleccione un alimento disponible (ingrese el índice): ");
-                                            int indiceAlimento = scanner.nextInt();
-                                            if (indiceAlimento >= 0 && indiceAlimento < alimentosDisponibles.size()) {
-                                                Food alimentoExistente = alimentosDisponibles.get(indiceAlimento);
-                                                System.out.println("Ingrese la cantidad en gramos de " + alimentoExistente.getName() + ":");
-                                                int gramosAlimentoExistente = scanner.nextInt();
-                                                scanner.nextLine(); // Consumir la nueva línea
+                                            System.out.println("Ingrese el nombre del nuevo alimento:");
+                                            String nombre = scanner.next();
+                                            System.out.println("Ingrese los gramos de carbohidratos por 100 gramos:");
+                                            int carbos = scanner.nextInt();
+                                            System.out.println("Ingrese los gramos de grasas por 100 gramos:");
+                                            int grasas = scanner.nextInt();
+                                            System.out.println("Ingrese los gramos de proteínas por 100 gramos:");
+                                            int proteinas = scanner.nextInt();
 
-                                                dietas.get(nombreDieta).addFood(alimentoExistente, gramosAlimentoExistente);
-                                                System.out.println(alimentoExistente.getName() + " agregado a la dieta.");
-                                            } else {
-                                                System.out.println("Índice incorrecto");
-                                            }
+                                            Food nuevoAlimento = new Food(carbos, grasas, proteinas, nombre);
+                                            alimentosSeleccionados.add(nuevoAlimento);
+
+                                            System.out.println("Ingrese la cantidad en gramos de " + nombre + ":");
+                                            int gramos = scanner.nextInt();
+                                            dieta.addFood(nuevoAlimento, gramos);
+
+                                            System.out.println(nombre + " agregado a la dieta.");
                                             break;
-
                                         case 2:
-                                            agregarAlimentos = false;
+                                            if (alimentosSeleccionados.isEmpty()) {
+                                                System.out.println("No hay alimentos ");
+                                            } else {
+                                                System.out.println("Lista de alimentos seleccionados:");
+                                                for (int i = 0; i < alimentosSeleccionados.size(); i++) {
+                                                    System.out.println(i + " " + alimentosSeleccionados.get(i).getName());
+                                                }
+                                                System.out.print("Seleccione un alimento existente (ingrese el índice): ");
+                                                int indiceAlimento = scanner.nextInt();
+
+                                                if (indiceAlimento >= 0 && indiceAlimento < alimentosSeleccionados.size()) {
+                                                    Food alimentoExistente = alimentosSeleccionados.get(indiceAlimento);
+
+                                                    System.out.println("Ingrese la cantidad en gramos de " + alimentoExistente.getName() + ":");
+                                                    int gramosAlimentoExistente = scanner.nextInt();
+
+                                                    dieta.addFood(alimentoExistente, gramosAlimentoExistente);
+                                                } else {
+                                                    System.out.println("Índice erróneo");
+                                                }
+                                            }
                                             break;
 
                                         default:
                                             System.out.println("Opción no válida");
                                             break;
                                     }
+
+                                    System.out.println("¿Desea agregar otro alimento? (s/n):");
+                                    String respuesta = scanner.next();
+                                    scanner.nextLine();
+                                    if (respuesta.equalsIgnoreCase("n")) {
+                                        agregarAlimentos = false;
+                                    }
                                 }
                                 break;
 
                             case 2:
-                                System.out.println("Listado de Dietas:");
-                                for (String nombre : dietas.keySet()) {
-                                    System.out.println("- " + nombre);
+                                if (dieta != null) {
+                                    System.out.println("Listado de Dietas:");
+                                    for (Map.Entry<String, Diet> entry : dietas.entrySet()) {
+                                        String key = entry.getKey();
+                                        Diet value = entry.getValue();
+                                        System.out.println("- " + key);
+                                        System.out.println(value);
+                                    }
+                                    dietas.put(nombreDieta, dieta);
+                                    dieta = null;
+                                } else {
+                                    System.out.println("No se ha seleccionado ninguna dieta.");
                                 }
                                 break;
 
@@ -167,7 +203,6 @@ public class Menu {
                     break;
 
                 case 2:
-                    // Gestión de Pacientes (por hacer)
                     System.out.println("Esta opción está por implementar.");
                     break;
 
