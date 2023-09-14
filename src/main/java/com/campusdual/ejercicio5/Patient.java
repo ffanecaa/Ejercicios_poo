@@ -2,8 +2,9 @@
 
 package com.campusdual.ejercicio5;
 
-        import java.util.ArrayList;
-        import java.util.List;
+        import com.campusdual.ejercicio5.exceptions.Genre;
+
+        import java.util.*;
 
 public class Patient {
     private String name;
@@ -11,19 +12,19 @@ public class Patient {
     private Integer weight;
     private Integer height;
     private Integer age;
-    private String sex;
+    private Genre genre;
     private List<Diet> diets;
 
-    public Patient(String name, String lastName, Integer weight, Integer height, Integer age, String sex) {
+    public Patient(String name, String lastName, Integer weight, Integer height, Integer age, Genre genre) {
         this.name = name;
         this.lastName = lastName;
         this.weight = weight;
         this.height = height;
         this.age = age;
-        this.sex = sex;
+        this.genre =genre;
         this.diets = new ArrayList<>();
     }
-
+// jj tiene hasmap
     public String getName() {
         return name;
     }
@@ -44,8 +45,12 @@ public class Patient {
         return age;
     }
 
-    public String getSex() {
-        return sex;
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     public List<Diet> getDiets() {
@@ -61,6 +66,6 @@ public class Patient {
     }
 
     public String getPatientInfo() {
-        return "Nombre: " + name + " " + lastName + ", Peso: " + weight + " kg, Altura: " + height + " cm, Edad: " + age + ", Sexo: " + sex;
+        return "Nombre: " + name + " " + lastName + ", Peso: " + weight + " kg, Altura: " + height + " cm, Edad: " + age + ", Sexo: " + genre;
     }
 }

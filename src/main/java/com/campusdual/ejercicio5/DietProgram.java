@@ -1,72 +1,122 @@
 package com.campusdual.ejercicio5;
 
-import com.campusdual.ejercicio5.exceptions.MaxCaloriesReachedException;
-import com.campusdual.ejercicio5.exceptions.MaxCarbsReachedException;
-import com.campusdual.ejercicio5.exceptions.MaxFatsReachedException;
-import com.campusdual.ejercicio5.exceptions.MaxProteinsReachedException;
-
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
+import java.util.*;
 
 public class DietProgram {
 
-    private Diet diet=null;
-
+    private Diet diet = null;
+    private Map<String, Diet> dietList;
     private List<Food> foodList;
 
-    public DietProgram(){
+    public DietProgram() {
         foodList = new ArrayList<>();
+        dietList = new HashMap<>();
     }
 
-    private Integer getOption(Integer min,Integer max){
-        Integer option = 0;
-        Boolean notvalid = true;
-        do{
-            try {
-                option = Kb.forceNextInt();
-                notvalid = option<min || option>max;
-            }catch (InputMismatchException e){
-                System.out.println("La opción debe ser un número");
-                Kb.nextLine();
-            }
-            if(notvalid){
-                System.out.println("Opción no valida, se requiere un número entre "+min+" y "+max);
-            }
-        }while(notvalid);
-        return option;
-    }
-
-    public void showMenuProgram(){
+    public void showMenuProgram() {
         System.out.println("########################################################");
         System.out.println("################# Programa de dietas ###################");
         System.out.println("########################################################");
         Integer option;
-        do{
+        do {
             System.out.println("Escriba una opción:");
             System.out.println("===================================");
-            System.out.println("1-Crear/reiniciar dieta");
-            System.out.println("2-Mostrar información de la dieta");
-            System.out.println("3-Agregar alimento al plan actual");
-            System.out.println("4-Salir del programa");
-            option = getOption(1,4);
-            switch (option){
+            System.out.println("1-Gestionar Dietas");
+            System.out.println("2-Gestion Pacientes");
+            System.out.println("3-Salir del programa");
+            option = Kb.getOption(1, 3);
+            switch (option) {
                 case 1:
-                    createMenu();
+                    dietManager();
                     break;
                 case 2:
-                    showDetailsMenu();
+                    CustomerManager();
                     break;
                 case 3:
-                    addFoodMenu();
+                    System.out.println("Gracias por usar el programa, hasta pronto :)");
+                    break;
+            }
+        } while (option != 3);
+    }
+
+    private void CustomerManager() {
+    }
+
+    private void dietManager() {
+        System.out.println("########################################################");
+        System.out.println("################# Gestionar dietas ###################");
+        System.out.println("########################################################");
+        Integer option;
+        do {
+            System.out.println("Escriba una opción:");
+            System.out.println("===================================");
+            System.out.println("1-Agregar Dietas");
+            System.out.println("2-Mostrar Dietas");
+            System.out.println("3-Eliminar Dietas");
+            System.out.println("4-Salir del programa");
+            option = Kb.getOption(1, 4);
+            switch (option) {
+                case 1:
+                    agregarDiet();
+                    break;
+                case 2:
+                    mostrarDieta();
+                    break;
+                case 3:
+                    deleteDiet();
                     break;
                 case 4:
                     System.out.println("Gracias por usar el programa, hasta pronto :)");
                     break;
             }
-        }while(option != 4);
+        } while (option != 4);
     }
 
+
+
+    public void agregarDiet() {
+       ;
+    }
+
+    private void mostrarDieta() {
+    }
+
+    public Diet getSelectDiet() {
+        System.out.println("Seleccione una dieta para eliminar:");
+
+        // Mostrar todas las dietas disponibles
+        int i = 1;
+        for (Map.Entry<String, Diet> entry : dietList.entrySet()) {
+            String nombre = entry.getKey();
+            System.out.println(i + ". " + nombre);
+            i++;
+        }
+
+        int opcion = Kb.forceNextInt(); // Leer la opción del usuario
+        if (opcion >= 1 && opcion <= dietList.size()) {
+            int contador = 1;
+            for (Map.Entry<String, Diet> entry : dietList.entrySet()) {
+                if (contador == opcion) {
+                    return entry.getValue(); // Devolver la dieta seleccionada
+                }
+                contador++;
+            }
+        }
+
+        System.out.println("Opción no válida.");
+        return null; // Devolver null si la opción no es válida
+    }
+
+    public void deleteDiet() {
+        Diet dietaSeleccionada = getSelectDiet(); // Obtener la dieta seleccionada
+        // Add code to delete the selected diet
+    }
+}
+
+
+
+
+/*
     private void addFoodMenu() {
         if(this.diet==null){
             System.out.println("Para agregar alimentos hace falta iniciar una dieta");
@@ -80,7 +130,7 @@ public class DietProgram {
         System.out.println("1-Agregar un nuevo alimento");
         System.out.println("2-Agregar un alimento ya existente");
 
-        Integer option = getOption(1,2);
+        Integer option = Kb.getOption(1,2);
         switch (option){
             case 1:
                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
@@ -114,7 +164,7 @@ public class DietProgram {
                     i++;
                 }
                 System.out.println(i+"- Cancelar");
-                Integer element = getOption(1,i);
+                Integer element = Kb.getOption(1,i);
                 if(element==i){
                     System.out.println("Cancelando alimento");
                     return;
@@ -153,7 +203,7 @@ public class DietProgram {
         System.out.println("2-Dieta por calorías");
         System.out.println("3-Dieta por macronutrientes");
         System.out.println("4-Dieta por datos personales");
-        Integer option = getOption(1,4);
+        Integer option = Kb.getOption(1,4);
         switch (option){
             case 1:
                 this.diet = new Diet();
@@ -221,4 +271,4 @@ public class DietProgram {
             System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         }
     }
-}
+}*/
