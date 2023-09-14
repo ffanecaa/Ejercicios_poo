@@ -3,7 +3,7 @@ package com.campusdual.ejercicio5;
 import java.util.*;
 
 public class DietProgram {
-
+    Map<String, Diet> dietas = new HashMap<>();
     private Diet diet = null;
     private Map<String, Diet> dietList;
     private List<Food> foodList;

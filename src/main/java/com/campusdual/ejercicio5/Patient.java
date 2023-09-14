@@ -2,8 +2,6 @@
 
 package com.campusdual.ejercicio5;
 
-        import com.campusdual.ejercicio5.exceptions.Genre;
-
         import java.util.*;
 
 public class Patient {

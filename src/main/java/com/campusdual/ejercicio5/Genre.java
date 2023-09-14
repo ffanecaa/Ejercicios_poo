@@ -1,4 +1,4 @@
-package com.campusdual.ejercicio5.exceptions;
+package com.campusdual.ejercicio5;
 
 public enum Genre { FEMALE, MALE;
 
