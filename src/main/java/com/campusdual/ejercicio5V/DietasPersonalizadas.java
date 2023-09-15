@@ -1,5 +1,7 @@
 package com.campusdual.ejercicio5V;
 
+import com.campusdual.ejercicio5b.Food;
+
 import java.util.*;
 
 public class DietasPersonalizadas {
@@ -7,6 +9,7 @@ public class DietasPersonalizadas {
 
     public DietasPersonalizadas() {
         dietasMap = new HashMap<>();
+        List<Food> alimentosSeleccionados = new ArrayList<>();
     }
 
     public void showMenuProgram() {
@@ -47,7 +50,7 @@ public class DietasPersonalizadas {
                                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                                 System.out.println("Escriba un nombre para la dieta:");
                                 nombreDieta = scanner.nextLine();
-                                Dietas dietas = new Dietas();
+                                Dietas nuevaDieta = new Dietas();
 
                                 System.out.println("Escriba una opción:");
                                 System.out.println("===================================");
@@ -61,7 +64,7 @@ public class DietasPersonalizadas {
 
                                 switch (tipoDieta) {
                                     case 'a':
-                                        dietasMap.put(nombreDieta, dietas);
+                                        dietasMap.put(nombreDieta, nuevaDieta);
                                         break;
                                     case 'b':
                                         System.out.println("Ingrese el máximo de calorías:");
@@ -124,7 +127,7 @@ public class DietasPersonalizadas {
 
                                             System.out.println("Ingrese la cantidad en gramos de " + nombre + ":");
                                             int gramos = scanner.nextInt();
-                                            dietas.addAlimentos(nuevoAlimento, gramos);
+                                            nuevaDieta.addAlimentos(nuevoAlimento, gramos);
 
                                             System.out.println(nombre + " agregado a la dieta.");
                                             break;
@@ -145,7 +148,7 @@ public class DietasPersonalizadas {
                                                     System.out.println("Ingrese la cantidad en gramos de " + alimentoExistente.getName() + ":");
                                                     int gramosAlimentoExistente = scanner.nextInt();
 
-                                                    dietas.addAlimentos(alimentoExistente, gramosAlimentoExistente);
+                                                    nuevaDieta.addAlimentos(alimentoExistente, gramosAlimentoExistente);
                                                 } else {
                                                     System.out.println("Índice erróneo");
                                                 }
@@ -165,8 +168,8 @@ public class DietasPersonalizadas {
                                 }
                                 break;
 
-                            case 2:/*
-                                if (dietas != null) {
+                            case 2:
+                                if (dietasMap != null) {
                                     System.out.println("Listado de Dietas:");
                                     for (Map.Entry<String, Dietas> entry : dietasMap.entrySet()) {
                                         String key = entry.getKey();
@@ -174,11 +177,9 @@ public class DietasPersonalizadas {
                                         System.out.println("- " + key);
                                         System.out.println(value);
                                     }
-                                    dietasMap.put(nombreDieta, dietas);
-                                    dietas = null;
                                 } else {
                                     System.out.println("No se ha seleccionado ninguna dieta.");
-                                }*/
+                                }
                                 break;
 
                             case 3:

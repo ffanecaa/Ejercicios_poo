@@ -1,5 +1,5 @@
 package com.campusdual.ejercicio5b;
-
+import com.campusdual.ejercicio5V.Genre;
 import java.util.*;
 
 public class Menu {
@@ -7,6 +7,8 @@ public class Menu {
         Map<String, Diet> dietas = new HashMap<>();
         Diet dieta = null;
         List<Food> alimentosSeleccionados = new ArrayList<>();
+        List<Pacientes> pacientesList = new ArrayList<>();
+
 
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
@@ -76,7 +78,7 @@ public class Menu {
                                         int maxProteinas = scanner.nextInt();
                                         dietas.put(nombreDieta, new Diet(maxGrasas, maxCarbos, maxProteinas));
                                         break;
-                                    case 'd':
+                                  /*  case 'd':
                                         System.out.println("Ingrese el sexo (h/m):");
                                         char sexo = scanner.next().charAt(0);
                                         System.out.println("Ingrese la edad:");
@@ -92,7 +94,7 @@ public class Menu {
                                         break;
                                     default:
                                         System.out.println("Opción no válida");
-                                        break;
+                                        break;*/
                                 }
 
                                 // Preguntar por los alimentos
@@ -203,8 +205,8 @@ public class Menu {
                     break;
 
                 case 2:
-                    System.out.println("Esta opción está por implementar.");
-                    break;
+                    gestorPacientes();
+
 
                 case 3:
                     salir = true;
@@ -213,12 +215,50 @@ public class Menu {
 
                 default:
                     System.out.println("Opción no válida");
-                    break;
-            }
+                    break;}
         }
         scanner.close();
     }
 
+    private static void gestorPacientes() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el nombre del paciente:");
+        String nombre = scanner.nextLine();
+
+        System.out.println("Ingrese el apellido del paciente:");
+        String apellido = scanner.nextLine();
+
+        System.out.println("Ingrese el peso del paciente (en kg):");
+        int peso = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Ingrese la altura del paciente (en cm):");
+        int altura = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Ingrese la edad del paciente:");
+        int edad = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Ingrese el género del paciente (h/m):");
+        char genero = scanner.next().charAt(0);
+        Genre genre;
+        if (genero == 'h') {
+            genre = Genre.MALE;
+        } else if (genero == 'm') {
+            genre = Genre.FEMALE;
+        } else {
+            throw new IllegalArgumentException("El género debe ser 'h' o 'm'.");
+        }
+
+        Pacientes paciente = new Pacientes(nombre,apellido,peso,altura,edad,genre);
+        System.out.println("Paciente añadido correctamente.");
+        System.out.println("Nombre del paciente: " + paciente.getPacientesInfo());
+        scanner.close();
+    }
+    }
+/*
     private static int calcularMetabolismoBasal(char sexo, int edad, int altura, int peso) {
         int tmb;
         if (sexo == 'h') {
@@ -230,4 +270,7 @@ public class Menu {
         }
         return tmb;
     }
-}
+
+*/
+
+
