@@ -271,6 +271,7 @@ public class DietasPersonalizadas {
             Dietas dietaAsociada = new ArrayList<>(dietasMap.values()).get(opcionDieta - 1);
             asociaciones.add(new Asociacion(paciente, dietaAsociada));
             System.out.println("Paciente asociado a la dieta correctamente.");
+            System.out.println("Asociación exitosa: Dieta: " + dietaAsociada.getTotalCalories() + " - Paciente: " + paciente.getName());
         }
     }
 
