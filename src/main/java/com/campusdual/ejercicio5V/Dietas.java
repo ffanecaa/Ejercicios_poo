@@ -1,8 +1,6 @@
 package com.campusdual.ejercicio5V;
 
 public class Dietas {
-
-
     private Integer maxCalories;
     private Integer maxFats;
     private Integer maxCarbs;
@@ -46,7 +44,7 @@ public class Dietas {
         }
     }
 
-    public void addFood(Alimentos alimento, Integer foodGrams) {
+    public void addAlimentos(Alimentos alimento, Integer foodGrams) {
         if (maxCalories != null && totalCalories + alimento.getCalories(foodGrams) > maxCalories) {
             System.out.println("Error: Se ha superado el límite de calorías.");
             return;
@@ -66,6 +64,7 @@ public class Dietas {
             System.out.println("Error: Se ha superado el límite de proteínas.");
             return;
         }
+
         totalCalories += alimento.getCalories(foodGrams);
         totalFats += (alimento.getFats() * foodGrams) / 100;
         totalCarbs += (alimento.getCarbos() * foodGrams) / 100;

@@ -16,9 +16,6 @@ public class Alimentos {
     }
 
     public Integer getCalories(Integer weight){
-        //1 gramo de proteína nos da 4 calorías.
-        // 1 gramo de carbohidratos nos da 4 calorías.
-        // 1 gramo de grasa nos da 9 calorías
         return(((carbos*4)+(fats*9)+(proteins*4))*weight/100);
     }
 
