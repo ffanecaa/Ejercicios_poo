@@ -16,6 +16,7 @@ public class Asociacion {
     }
 
     public Dietas getDieta() {
+
         return dieta;
     }
 }
