@@ -1,43 +1,40 @@
 package com.campusdual.ejercicio6;
-/*
--Teniendo en cuenta el programa anterior(ejercicio4):
-//--Realiza los cambios necesarios para:
-//  -La dieta ya no será única si no que se guardará en una lista de dietas. Esta lista tendrá un nombre para poder ser
-recuperada.
-//      Será necesario cambiar el menú para gestionar esta lista. Ahora en ved de crear/reemplazar dieta lo que haremos será:
-//    a- Agregar dieta: Añade una dieta a la lista. (Podemos reutilizar el menú antiguo de crear/reemplazar)
-//    b- Mostrar detalles de dieta: Muestra los detalles de una dieta y permite modificarla
-//    c- Eliminar dieta: Elimina una dieta de la lista(Siempre que no la tenga asignada un paciente)
-//
-//  -Se pueden dar de alta personas: Las personas tendrán los siguientes atributos: nombre, apellidos, peso,
- altura, edad y sexo.
-//    -Las personas podrán tener asignadas una lista de dietas que se catalogarán de lunes a domingo sacadas de
-la lista de dietas anterior.
-//    -Se agregara un apartado nuevo al menú de "Gestión de pacientes" con las siguientes funcionalidades:
-//      1- Dar de alta un paciente : Agregará un paciente nuevo a la lista de pacientes
-//      2- Listar y Mostrar detalles de un paciente : Mostrará el detalle de un paciente así como todas
- sus dietas listadas de Lunes a domingo y permite modificar sus datos y asignar dietas
-//      3- Dar de baja un paciente: Elimina los datos de un paciente(No borra sus dietas asignadas dado que
-pueden estar asignadas a otro paciente)
-//
-//--Teniendo en cuenta las funcionalidades anteriores modificar el programa para realizar las sigueintes acciones
-//        --Los alimentos predefinidos ahora se guardarán en un fichero, habrá un menú adicional que permita:
-//        a-añadir un nuevo alimento
-//        b-listarlos: pudiendo modificar cualquier parámetro del mismo
-//        c-eliminarlos
-//        --Los pacientes ahora se guadararan en un fichero, se mantendrá el menú que permite listar pacientes pero se
-agregará una nueva opción que permita buscarlos por nombre y apellido. Las acciones de borrado de clientes los borran del
- fichero.
-//        --Las dietas ahora se guardarán en un fichero. Se mantendrá la funcionalidad de listarlas pero se agregará una
-nueva opción de buscarlas por nombre.
-//        --Se crearán una nueva opciones en el menú en la gestión de dietas
-//        a-opción de mostrar estadisticas de uso: esta opción nos indicará en orden descendente las dietas más usadas y
- por cuantos pacientes se está usando cada una de ellas, solo deben aparecer las que estén en uso.*/
+
+import com.campusdual.ejercicio5V.DietasPersonalizadas;
+
+import java.util.*;
 
 public class Gestor {
     public static void main(String[] args) {
- Pacientes paciente1 = new Pacientes("pedro","gzl",80,180,45,"mujer");
-   System.out.println(  paciente1.dameDatos());
+        String rutaArchivo = "C:/Users/marti/OneDrive/Documentos/GitHub/ejerci_poo/ejercicios_poo/src/main/java/com/campusdual/alimentos.txt";
 
+        // Paso 1: Recuperar contenido como un conjunto
+        Set<String> contenidoSet = ArchivoGestor.recuperarContenidoComoSet(rutaArchivo);
+        ArrayList<String> contenidoList = new ArrayList<>(contenidoSet);
+
+        for (int i = 0; i < contenidoList.size(); i++) {
+            String linea = contenidoList.get(i);
+            System.out.println((i + 1) + ". " + linea);
+        }
+
+        // Leer la opción del usuario
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Elige un número: ");
+        int opcion = scanner.nextInt();
+
+        switch (opcion) {
+            case 1:
+              System.out.println( opcion);
+                break;
+            case 2:
+                // Acciones para la segunda línea
+                break;
+            // ... y así sucesivamente
+            default:
+                System.out.println("Opción inválida.");
+        }
     }
 }
+
+
+

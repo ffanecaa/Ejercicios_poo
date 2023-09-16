@@ -6,6 +6,8 @@ public class Alimentos {
     private Integer proteins;
     private String name;
     private Integer gramos;
+   private int Id;
+   private static int IdSiguiente =1;
 
     public Alimentos(Integer carbos, Integer fats, Integer proteins, String name, Integer gramos) {
         this.carbos = carbos;
@@ -13,6 +15,8 @@ public class Alimentos {
         this.proteins = proteins;
         this.name = name;
         this.gramos = gramos;
+        Id= IdSiguiente;
+        IdSiguiente++;
     }
 
     public Integer getCalories(Integer weight){

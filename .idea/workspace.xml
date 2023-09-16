@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="323932bb-15d6-4315-8804-1ea15f1ae84c" name="Changes" comment="inicio">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/apuntes/alimentos/Food.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/apuntes/alimentos/FoofUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/apuntes/array/Array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/apuntes/vehiculos/Coche.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/apuntes/vehiculos/Deportivo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/apuntes/vehiculos/ProbarVehiculos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/apuntes/vehiculos/Vehiculos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio4/Diet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio4/FoodUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio4/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio4/food1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio4b/Diet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio4b/Food.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio4b/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio6/ArchivoGestor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio6/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio6/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio6/Gestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio6/Gestor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio6/Pacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/campusdual/ejercicio6/Pacientes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -28,6 +28,8 @@ public class Pacientes {
      private Integer altura;
      private Integer edad;
      private String genero;
+    int Id;
+    private static int IdSiguiente =1;
 
     public Pacientes(String nombre, String apellido, Integer peso,
                      Integer altura, Integer edad, String genero) {
@@ -37,6 +39,8 @@ public class Pacientes {
         this.altura = altura;
         this.edad = edad;
         this.genero = genero;
+        Id= IdSiguiente;
+        IdSiguiente++;
     }
 
 
@@ -89,9 +93,9 @@ public class Pacientes {
     }
 
 
-    public String dameDatos(){
-        return "el Paciente se llama"+ " "+ nombre +" "+ apellido+" "+ "tiene"+ " "+edad+" "+ "peso: "+peso+" "+ "altura:"+altura+" "+"edad"+edad+" "+ "genero:"+genero;
-    }
 
+    public String obtenerContenido() {
+        return Id +" "+ nombre +" "+ apellido+" "+ "tiene"+ " "+edad+" "+ "peso: "+peso+" "+ "altura:"+altura+" "+"edad"+edad+" "+ "genero:"+genero;
+    }
 
 }
