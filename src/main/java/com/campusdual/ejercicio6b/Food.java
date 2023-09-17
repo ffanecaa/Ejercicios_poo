@@ -1,4 +1,6 @@
-package com.campusdual.ejercicio6;
+package com.campusdual.ejercicio6b;
+
+
 
 public class Food {
     Integer calorias;
@@ -10,8 +12,6 @@ public class Food {
     private static int IdSiguiente =1;
 
     public Food() {
-        Id= IdSiguiente;
-        IdSiguiente++;
     }
 
     public Food(String nombre,Integer calorias, Integer carbos, Integer proteinas, Integer grasas) {
@@ -73,3 +73,4 @@ public class Food {
 
 
 }
+

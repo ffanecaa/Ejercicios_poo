@@ -15,17 +15,18 @@ public class Menus {
     }
 
 
-
-    public void imprimirMenu() {
+/*
+    public static void imprimirMenu() {
         System.out.println("----- Menú -----");
-        for (Food alimento : alimentos) {
+        for (Food alimento : Food.) {
             System.out.println(alimento.dameDatosFood());
         }
+
         System.out.println("----------------");
         System.out.println("Totales:");
-        System.out.println("Calorías: " + dieta.getTotalCalories());
-        System.out.println("Carbohidratos: " + dieta.getTotalCarbs());
-        System.out.println("Grasas: " + dieta.getTotalFats());
-        System.out.println("Proteínas: " + dieta.getTotalProteins());
+        System.out.println("Calorías: " + Dietas.getTotalCalories());
+        System.out.println("Carbohidratos: " + Dietas.getTotalCarbs());
+        System.out.println("Grasas: " + Dietas.getTotalFats());
+        System.out.println("Proteínas: " + Dietas.getTotalProteins());
     }
-}
+*/}

@@ -97,5 +97,11 @@ public class Pacientes {
     public String obtenerContenido() {
         return Id +" "+ nombre +" "+ apellido+" "+ "tiene"+ " "+edad+" "+ "peso: "+peso+" "+ "altura:"+altura+" "+"edad"+edad+" "+ "genero:"+genero;
     }
-
+/*  1- Dar de alta un paciente : Agregará un paciente nuevo a la lista de pacientes
+//      2- Listar y Mostrar detalles de un paciente : Mostrará el detalle de un paciente así
+*  como todas
+ sus dietas listadas de Lunes a domingo y permite modificar sus datos y asignar dietas
+//      3- Dar de baja un paciente: Elimina los datos de un paciente(No borra sus dietas asignadas
+*  dado que
+pueden estar asignadas a otro paciente)  */
 }

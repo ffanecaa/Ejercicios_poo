@@ -1,10 +1,12 @@
 package com.campusdual.ejercicio6;
 
 
+import java.util.ArrayList;
 
 public class Dietas {
 
-    
+    String ruta = "C:/Users/marti/OneDrive/Documentos/GitHub/ejerci_poo/ejercicios_poo/src/main/java/com/campusdual/alimentos.txt";
+
         private Integer maxCalories;
         private Integer maxFats;
         private Integer maxCarbs;
@@ -13,6 +15,8 @@ public class Dietas {
         private Integer totalCarbs;
         private Integer totalFats;
         private Integer totalProtein;
+        private Integer gramos;
+    ArrayList<String> alimentosGuardados = ArchivoGestor.recuperarContenidoComoArrayList(ruta);
 
         int Id;
          private String nombre;
@@ -74,10 +78,10 @@ public class Dietas {
                 return;
             }
 
-            totalCalories += Food.getCalorias(foodGrams);
-            totalFats += (Food.getGrasas() * foodGrams) / 100;
-            totalCarbs += (Food.getCarbos() * foodGrams) / 100;
-            totalProtein += (Food.getProteinas() * foodGrams) / 100;
+            totalCalories += Food.getCalorias(ListaAlimentos.asociarGramosyFood().getGramos());
+            totalFats += (Food.getGrasas() * ListaAlimentos.asociarGramosyFood().getGrasas()) / 100;
+            totalCarbs += (Food.getCarbos() * ListaAlimentos.asociarGramosyFood().getCarbos()) / 100;
+            totalProtein += (Food.getProteinas() * ListaAlimentos.asociarGramosyFood().getProteinas()) / 100;
 
         }
 
