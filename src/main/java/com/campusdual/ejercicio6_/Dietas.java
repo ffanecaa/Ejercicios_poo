@@ -1,4 +1,4 @@
-package com.campusdual.ejercicio6;
+package com.campusdual.ejercicio6_;
 
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class Dietas {
             this.nombre = nombre;
         }
 
-        public Dietas(String nombre,Integer maxFats, Integer maxCarbs, Integer maxProtein) {
+        public Dietas(String nombre, Integer maxFats, Integer maxCarbs, Integer maxProtein, ListaAlimentos valores) {
             this();
             this.maxFats = maxFats;
             this.maxCarbs = maxCarbs;
@@ -54,6 +54,9 @@ public class Dietas {
         this.nombre = " ";
         Id= IdSiguiente;
         IdSiguiente++;
+    }
+
+    public Dietas(String nombre, Integer calorias, Integer carbos, Integer proteinas, Integer grasas, Integer gramos) {
     }
 
 

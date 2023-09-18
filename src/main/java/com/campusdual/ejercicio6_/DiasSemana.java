@@ -1,4 +1,4 @@
-package com.campusdual.ejercicio6;
+package com.campusdual.ejercicio6_;
 
 public enum DiasSemana {
  

@@ -1,5 +1,4 @@
-package com.campusdual.ejercicio6;
-import com.campusdual.ejercicio6b.Gramos;
+package com.campusdual.ejercicio6_;
 
 import java.util.*;
 
@@ -65,7 +64,51 @@ public class motorr {
                         case 1:
                             System.out.println("Opción para Agregar Dieta seleccionada.");
                             // Aquí debes implementar la lógica para agregar una dieta
+                            System.out.println("Escriba una opción:");
+
+                            System.out.println("1. Sin límite de calorías");
+                            System.out.println("2. Por calorías");
+                            System.out.println("3. Por macronutrientes");
+                            System.out.println("4. salir");
+
+                            int tipo = scanner.nextInt();
+                            scanner.nextLine();
+
+                            switch (tipo) {
+
+                                case 1:
+                                    System.out.println("Ingrese el nombre dieta:");
+                                    String nombre = scanner.nextLine();
+                                    ListaAlimentos valores = ListaAlimentos.asociarGramosyFood();
+
+                                    // Obtener los valores del alimento
+                                    Integer gramos = valores.getGramos();
+                                    Integer calorias = valores.getCalorias(gramos);
+                                    Integer carbos = valores.getCarbos();
+                                    Integer proteinas = valores.getProteinas();
+                                    Integer grasas = valores.getGrasas();
+
+                                    Dietas dietaSinLimite = new Dietas(nombre,calorias,carbos,proteinas,grasas,gramos);
+                                    String  cosas = valores.toString()+  nombre +"tiene calorias: " + calorias+ "carbos:" +carbos;
+                                 // String cosas =dietaSinLimite.obtenerDietas();
+                                    String rutaDietas = "C:/Users/marti/OneDrive/Documentos/GitHub/ejerci_poo/ejercicios_poo/src/main/java/com/campusdual/Dietas.txt";
+                                    ArchivoGestor.escribirEnArchivoDieta(rutaDietas,cosas);
+
+
+                                    // Crear la dieta con los valores del alimento
+
+
                             break;
+                            case 2:
+                            //calorias
+                            break;
+                            case 3:
+                            //macro
+                            break;
+                                default:
+                                    System.out.println("Subopción no válida. Por favor, seleccione una subopción válida.");
+                                    break;
+                            }
                         case 2:
                             System.out.println("Opción para Agregar Alimentos seleccionada.");
                             System.out.println("1. Agregar Nuevo Alimento");
@@ -74,7 +117,7 @@ public class motorr {
                             System.out.print("Seleccione una subopción: ");
 
                             int subopcionAlimentos = scanner.nextInt();
-                            scanner.nextLine(); // Limpiar el buffer del scanner
+                            scanner.nextLine();
 
                             switch (subopcionAlimentos) {
                                 case 1:
@@ -84,8 +127,7 @@ public class motorr {
                                 case 2:
                                     ListaAlimentos.asociarGramosyFood();
                                     break;
-                                    case 3:
-                                    //borrar
+                                case 3: // borrar
                                     break;
                                 default:
                                     System.out.println("Subopción no válida. Por favor, seleccione una subopción válida.");
@@ -95,7 +137,13 @@ public class motorr {
 
                        case 3:
                             System.out.println("Opción para Listar Dietas seleccionada.");
-                            // Aquí debes implementar la lógica para listar dietas
+                            String rutaDietas ="C:/Users/marti/OneDrive/Documentos/GitHub/ejerci_poo/ejercicios_poo/src/main/java/com/campusdual/Dietas.txt";
+                           ArrayList<String> contenidos =    ArchivoGestor.recuperarContenidoComoArrayList(rutaDietas);
+
+
+                           for (String linea : contenidos) {
+                               System.out.println(linea);
+                           }
                             break;
                         case 4:
                             System.out.println("Opción para Listar Alimentos seleccionada.");

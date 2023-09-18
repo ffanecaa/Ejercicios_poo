@@ -1,4 +1,4 @@
-package com.campusdual.ejercicio6;
+package com.campusdual.ejercicio6_;
 
 /*
 * -Se pueden dar de alta personas: Las personas tendrán los siguientes atributos:

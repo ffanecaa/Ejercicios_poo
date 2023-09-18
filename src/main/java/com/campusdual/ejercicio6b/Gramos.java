@@ -46,7 +46,7 @@ import java.util.Scanner;
 
             // Verificar si el alimento ya existe en el archivo
             String ruta = "C:/Users/marti/OneDrive/Documentos/GitHub/ejerci_poo/ejercicios_poo/src/main/java/com/campusdual/alimentos.txt";
-            ArrayList<String> alimentosGuardados = com.campusdual.ejercicio6.ArchivoGestor.recuperarContenidoComoArrayList(ruta);
+            ArrayList<String> alimentosGuardados = com.campusdual.ejercicio6_.ArchivoGestor.recuperarContenidoComoArrayList(ruta);
 
             boolean alimentoYaExiste = false;
             for (String linea : alimentosGuardados) {

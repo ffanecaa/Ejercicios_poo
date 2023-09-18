@@ -1,12 +1,8 @@
 package com.campusdual.ejercicio6b;
 
-import com.campusdual.ejercicio6.ArchivoGestor;
-import com.campusdual.ejercicio6.Food;
-import com.campusdual.ejercicio6.ListaAlimentos;
-
-import java.util.*;
-
-
+import com.campusdual.ejercicio6_.ArchivoGestor;
+import com.campusdual.ejercicio6_.Food;
+import com.campusdual.ejercicio6_.ListaAlimentos;
 
 
 import java.util.ArrayList;
