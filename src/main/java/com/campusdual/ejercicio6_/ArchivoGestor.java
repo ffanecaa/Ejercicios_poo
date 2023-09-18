@@ -35,7 +35,7 @@ public class ArchivoGestor {
 
             for (String linea : alimentosGuardados) {
                 String[] partesLinea = linea.split(" ");
-                String nombreGuardado = partesLinea[1];
+                String nombreGuardado = partesLinea[4];//yo uno
                 if (nombreGuardado.equals(nombreAlimento)) {
                     alimentoExiste = true;
                     break;
